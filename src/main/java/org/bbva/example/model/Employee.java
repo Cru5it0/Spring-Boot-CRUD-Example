@@ -16,17 +16,18 @@ public class Employee {
     private String Job;
     @ManyToOne
     @JoinColumn(name = "id_email")
-    private Long id_email;
+    private Email id_email;
 
     @ManyToOne
     @JoinColumn(name = "id_persona")
     private Person id_person;
+
+    @ManyToOne
+    @JoinColumn(name = "id_sales")
+    private Sales id_sales;
+
     @NotBlank
     private int status;
-
-    @ManyToMany
-    @JoinColumn(name = "sales_id")
-    private Sales sales_id;
 
     public Long getId() {
         return id;
@@ -44,11 +45,11 @@ public class Employee {
         Job = job;
     }
 
-    public Long getId_email() {
+    public Email getId_email() {
         return id_email;
     }
 
-    public void setId_email(Long id_email) {
+    public void setId_email(Email id_email) {
         this.id_email = id_email;
     }
 
@@ -68,11 +69,11 @@ public class Employee {
         this.status = status;
     }
 
-    public Sales getSales_id() {
-        return sales_id;
+    public Sales getId_sales() {
+        return id_sales;
     }
 
-    public void setSales_id(Sales sales_id) {
-        this.sales_id = sales_id;
+    public void setId_sales(Sales id_sales) {
+        this.id_sales = id_sales;
     }
 }

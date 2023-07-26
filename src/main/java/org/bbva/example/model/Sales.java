@@ -16,10 +16,6 @@ public class Sales {
 
     private String description;
 
-    @ManyToMany
-    @JoinColumn(name = "employee_id")
-    private Employee employee_id;
-
     public Long getId() {
         return id;
     }
@@ -36,11 +32,4 @@ public class Sales {
         this.description = description;
     }
 
-    public Employee getEmployee_id() {
-        return employee_id;
-    }
-
-    public void setEmployee_id(Employee employee_id) {
-        this.employee_id = employee_id;
-    }
 }

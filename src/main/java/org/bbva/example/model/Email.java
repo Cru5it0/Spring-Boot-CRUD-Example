@@ -21,10 +21,6 @@ public class Email {
     @Column(length = 20, nullable = false)
     private String password;
 
-    @ManyToOne
-    @JoinColumn(name = "employee_id")
-    private Employee employee_id;
-
     public Long getId() {
         return id;
     }
@@ -49,11 +45,4 @@ public class Email {
         this.password = password;
     }
 
-    public Employee getEmployee_id() {
-        return employee_id;
-    }
-
-    public void setEmployee_id(Employee employee_id) {
-        this.employee_id = employee_id;
-    }
 }
