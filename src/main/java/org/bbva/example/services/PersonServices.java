@@ -30,7 +30,6 @@ public class PersonServices {
         return personRepository.findById(id)
                 .map(item -> {
                     item.setName(newPerson.getName());
-                    item.setLastName(newPerson.getLastName());
                     item.setAge(newPerson.getAge());
                     return personRepository.save(item);
                 }).orElseGet(() -> {

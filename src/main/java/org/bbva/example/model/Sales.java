@@ -11,9 +11,9 @@ public class Sales {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true, nullable = false)
     private Long id;
 
+    @Column(name = "description")
     private String description;
 
     public Long getId() {
@@ -32,4 +32,11 @@ public class Sales {
         this.description = description;
     }
 
+    public Sales() {
+
+    }
+    public Sales(Long id, String description) {
+        this.id = id;
+        this.description = description;
+    }
 }

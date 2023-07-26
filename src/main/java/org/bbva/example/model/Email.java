@@ -11,14 +11,13 @@ public class Email {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true, nullable = false)
     private Long id;
 
     @javax.validation.constraints.Email
-    @Column(nullable = false, length = 50)
+    @Column(name = "email", nullable = false, length = 50)
     private String email;
 
-    @Column(length = 20, nullable = false)
+    @Column(name = "password", length = 20, nullable = false)
     private String password;
 
     public Long getId() {
@@ -45,4 +44,10 @@ public class Email {
         this.password = password;
     }
 
+    public Email() {}
+    public Email(Long id, String email, String password) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+    }
 }

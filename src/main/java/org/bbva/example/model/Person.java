@@ -12,18 +12,17 @@ public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true, nullable = false)
     private Long id;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "name", nullable = false, length = 50)
     @NotBlank(message = "Name is mandatory")
     private String name;
 
+    @Column(name = "last_name", nullable = false, length = 50)
     @NotBlank(message = "Last Name is mandatory")
     private String lastName;
 
-    @NotBlank
-    private int age;
+    private Integer age;
 
     public Long getId() {
         return id;
@@ -49,6 +48,10 @@ public class Person {
         this.lastName = lastName;
     }
 
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
     public int getAge() {
         return age;
     }
@@ -56,4 +59,14 @@ public class Person {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public Person() {}
+
+    public Person(Long id, String name, String lastName, int age) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.age = age;
+    }
+
 }

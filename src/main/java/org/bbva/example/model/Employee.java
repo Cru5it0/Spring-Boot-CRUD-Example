@@ -4,14 +4,14 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "employees")
+@Table(name = "employee")
 public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true, nullable = false)
     private Long id;
 
+    @Column(name = "job")
     @NotBlank
     private String Job;
     @ManyToOne
@@ -26,6 +26,7 @@ public class Employee {
     @JoinColumn(name = "id_sales")
     private Sales id_sales;
 
+    @Column(name = "status")
     @NotBlank
     private int status;
 
@@ -75,5 +76,15 @@ public class Employee {
 
     public void setId_sales(Sales id_sales) {
         this.id_sales = id_sales;
+    }
+
+    public Employee() {}
+    public Employee(Long id, String job, Email id_email, Person id_person, Sales id_sales, int status) {
+        this.id = id;
+        Job = job;
+        this.id_email = id_email;
+        this.id_person = id_person;
+        this.id_sales = id_sales;
+        this.status = status;
     }
 }
