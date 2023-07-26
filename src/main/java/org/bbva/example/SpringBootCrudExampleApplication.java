@@ -44,16 +44,26 @@ public class SpringBootCrudExampleApplication implements CommandLineRunner {
 		Email email1 = new Email(null, "curz@hotmail.com", "12345");
 		Email email2 = new Email(null, "paulina@hotmail.com", "12345");
 		Email email3 = new Email(null, "oscar@hotmail.com", "12345");
+		emailRepository.save(email1);
+		emailRepository.save(email2);
+		emailRepository.save(email3);
 
 		// Add new Sales
 		Sales s1 = new Sales(null, "Sold clothes");
 		Sales s2 = new Sales(null, "Recruit employees");
 		Sales s3 = new Sales(null, "Sold clothes");
+		salesRepository.save(s1);
+		salesRepository.save(s2);
+		salesRepository.save(s3);
 
 		// Add new Employees
 		Employee e1 = new Employee(null, "Staff", email1, p1, s1, 1);
 		Employee e2 = new Employee(null, "Human Resources", email1, p2, s2, 1);
 		Employee e3 = new Employee(null, "Staff", email1, p3, s3, 1);
+		employeeRepository.save(e1);
+		employeeRepository.save(e2);
+		employeeRepository.save(e3);
+
 	}
 
 }

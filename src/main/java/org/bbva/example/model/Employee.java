@@ -19,7 +19,7 @@ public class Employee {
     private Email id_email;
 
     @ManyToOne
-    @JoinColumn(name = "id_persona")
+    @JoinColumn(name = "id_person")
     private Person id_person;
 
     @ManyToOne
@@ -27,8 +27,7 @@ public class Employee {
     private Sales id_sales;
 
     @Column(name = "status")
-    @NotBlank
-    private int status;
+    private Integer status;
 
     public Long getId() {
         return id;
