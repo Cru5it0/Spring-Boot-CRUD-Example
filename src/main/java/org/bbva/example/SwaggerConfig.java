@@ -17,6 +17,9 @@ import java.util.Collections;
 @EnableSwagger2
 public class SwaggerConfig {
 
+    // This Docket file through which we indicate to Swagger
+    // what it should take into account when creating the documentation.
+    // This method creates the Docket Object
 	@Bean
     public Docket apiDocket() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -27,6 +30,9 @@ public class SwaggerConfig {
                 .apiInfo(getApiInfo());
     }
 
+    // Inside the apiDocket method we build the Docket object
+    // In which we instruct you to take all the services found
+    // in the package and self-document them for us.
     private ApiInfo getApiInfo() {
         return new ApiInfo(
                 "Order Service API",
