@@ -1,13 +1,7 @@
 package org.bbva.example;
 
-import org.bbva.example.model.Email;
-import org.bbva.example.model.Employee;
-import org.bbva.example.model.Person;
-import org.bbva.example.model.Sales;
-import org.bbva.example.reposiroty.EmailRepository;
-import org.bbva.example.reposiroty.EmployeeRepository;
-import org.bbva.example.reposiroty.PersonRepository;
-import org.bbva.example.reposiroty.SalesRepository;
+import org.bbva.example.model.*;
+import org.bbva.example.reposiroty.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -29,6 +23,9 @@ public class SpringBootCrudExampleApplication implements CommandLineRunner {
 	@Autowired
 	EmailRepository emailRepository;
 
+	@Autowired
+	CustomerRepository customerRepository;
+
 	@Override
 	public void run(String... args) throws Exception {
 
@@ -40,13 +37,28 @@ public class SpringBootCrudExampleApplication implements CommandLineRunner {
 		personRepository.save(p2);
 		personRepository.save(p3);
 
-		// Add new Emails
+		Person p4 = new Person(null, "Sofia Saharao", "Cervantes", 23);
+		Person p5 = new Person(null, "Isaac", "Cervantes", 19);
+		Person p6 = new Person(null, "Daniel", "Rodriguez", 21);
+		personRepository.save(p4);
+		personRepository.save(p5);
+		personRepository.save(p6);
+
+		// Add new Emails employees
 		Email email1 = new Email(null, "curz@hotmail.com", "12345");
 		Email email2 = new Email(null, "paulina@hotmail.com", "12345");
 		Email email3 = new Email(null, "oscar@hotmail.com", "12345");
 		emailRepository.save(email1);
 		emailRepository.save(email2);
 		emailRepository.save(email3);
+
+		// Add new Emails customers
+		Email email4 = new Email(null, "sofia@gmail.com", "12345");
+		Email email5 = new Email(null, "isaac@gmail.com", "12345");
+		Email email6 = new Email(null, "daniel@gmail.com", "12345");
+		emailRepository.save(email4);
+		emailRepository.save(email5);
+		emailRepository.save(email6);
 
 		// Add new Sales
 		Sales s1 = new Sales(null, "Sold clothes");
@@ -63,8 +75,16 @@ public class SpringBootCrudExampleApplication implements CommandLineRunner {
 		employeeRepository.save(e1);
 		employeeRepository.save(e2);
 		employeeRepository.save(e3);
+
+		// Add new Customer
+		Customer c1 = new Customer(null, "Faro del Carmen 239", email4, p4, 1);
+		Customer c2 = new Customer(null, "San Juan Bosco 200", email5, p5, 1);
+		Customer c3 = new Customer(null, "Vivar 512", email6, p6, 1);
+		customerRepository.save(c1);
+		customerRepository.save(c2);
+		customerRepository.save(c3);
+
 	}
 
-
-
 }
+
