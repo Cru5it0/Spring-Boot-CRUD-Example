@@ -1,5 +1,6 @@
 package org.bbva.example.services;
 
+import org.bbva.example.errors.ItemNotFoundException;
 import org.bbva.example.model.Customer;
 import org.bbva.example.reposiroty.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,36 @@ public class CustomerService {
         return (ArrayList<Customer>)  customerRepository.findAll();
     }
 
-    
+    public Customer getIdCustomer(Long id) {
+        return customerRepository.findById(id).orElseThrow(() -> new ItemNotFoundException(id));
+    }
+
+    public Customer save(Customer customer) {
+        return customerRepository.save(customer);
+    }
+
+    public Customer update(Customer newCustomer, Long id) {
+        return customerRepository.findById(id)
+                .map(item -> {
+                    item.setAddress(newCustomer.getAddress());
+                    item.setStatus(newCustomer.getStatus());
+                    return customerRepository.save(item);
+                }).orElseGet(() -> {
+                    newCustomer.setId(id);
+                    return customerRepository.save(newCustomer);
+                });
+    }
+
+    public boolean delete(Long id) {
+        try {
+            Customer customer = customerRepository.findById(id).orElseThrow(() -> new ItemNotFoundException(id));
+            customer.setStatus(0);
+            customerRepository.save(customer);
+
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
 }

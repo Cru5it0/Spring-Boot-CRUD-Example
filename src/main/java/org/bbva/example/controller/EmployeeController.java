@@ -29,12 +29,12 @@ public class EmployeeController {
         return employeeService.getIdEmployee(id);
     }
 
-    @PutMapping("/employee/id")
+    @PutMapping("/employee/{id}")
     public Employee updateEmployee(@Valid @RequestBody Employee newEmployee, @PathVariable Long id) {
         return this.employeeService.update(newEmployee, id);
     }
 
-    @DeleteMapping("/employee/id")
+    @DeleteMapping("/employee/{id}")
     public String deleteEmployee(@PathVariable("id") Long id) {
         boolean success = this.employeeService.delete1(id);
 
