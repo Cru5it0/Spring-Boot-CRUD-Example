@@ -36,6 +36,44 @@ After that, We add others dependency in **pom.xml** file.
 
 **Step 7. BRING CUSTOMERS BASED ON STATUS - /{STATUS} - ACTIVE/INACTIVE (NEW METHOD)**
 
+**Step 8. Docker**
+First we need to download and install [Docker](https://www.docker.com/products/docker-desktop/) in our Desktop. Confirm
+that you have installed Docker running the next line in CMD after `docker --version` to confirm the Docker installation.
+We search the Images that we need MySql in this case, we should go to [Docker Hub](https://hub.docker.com/) and in the
+search box, you must search MySQL
+
+![img_1.png](img_1.png)
+
+Click in the first option and copy the command line in the corned `docker pull mysql`.
+
+![img_2.png](img_2.png)
+
+When you run command line in CMD it will start to download the MySql Images.
+
+![img_3.png](img_3.png)
+
+We could confirm the images installation with the command line `docker images`.
+
+![img_4.png](img_4.png)
+
+![img_5.png](img_5.png)
+
+
+Dockerfile
+
+`FROM openjdk:17
+
+COPY target/Spring-Boot-CRUD-Example-0.0.1-SNAPSHOT.jar /app.jar
+
+ENTRYPOINT ["java", "-jar", "/app.jar"]`
+
+docker-compose.yml
+
+![img_6.png](img_6.png)
+
+application.yml 
+
+![img_7.png](img_7.png)
 
 Bibliography
 
