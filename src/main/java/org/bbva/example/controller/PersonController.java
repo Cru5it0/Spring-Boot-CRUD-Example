@@ -11,38 +11,38 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("person")
-@Api(tags = "People Controller", description = "CRUD of people in Data Base from application")
+@RequestMapping
+@Api(tags = "people-controller", description = "CRUD of people in Data Base from application")
 public class PersonController {
 
     @Autowired
     PersonServices personServices;
 
-    @GetMapping()
+    @GetMapping(value = "/person")
     @ApiOperation("Get all people")
     List<Person> all() {
         return personServices.getAllPersons();
     }
 
-    @PostMapping()
+    @PostMapping(value = "/person")
     @ApiOperation("Add a new person")
     public Person addPerson(@Valid @RequestBody Person newPerson) {
         return this.personServices.save(newPerson);
     }
 
-    @GetMapping(path = "{id}")
+    @GetMapping(value = "/person/{id}")
     @ApiOperation("Find person for each id")
     public Person getIdPerson(@PathVariable("id") Long id) {
         return personServices.getIdPerson(id);
     }
 
-    @PutMapping(path = "{id}")
+    @PutMapping(value = "/person/{id}")
     @ApiOperation("Update the person info")
     public Person updatePerson(@Valid @RequestBody Person newPerson, @PathVariable Long id) {
         return this.personServices.update(newPerson, id);
     }
 
-    @DeleteMapping(path = "{id}")
+    @DeleteMapping(value = "/person/{id}")
     @ApiOperation("Delete person from the DataBase")
     public String delete(@PathVariable("id") Long id) {
         boolean success = this.personServices.deletePerson(id);

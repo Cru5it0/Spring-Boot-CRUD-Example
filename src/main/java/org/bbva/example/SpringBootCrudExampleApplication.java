@@ -28,7 +28,7 @@ public class SpringBootCrudExampleApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
+		/*
 		// Add new People
 		Person p1 = new Person(null, "Cruz Isaac", "Aranda", 23);
 		Person p2 = new Person(null, "Paulina", "Cervantes", 19);
@@ -83,7 +83,7 @@ public class SpringBootCrudExampleApplication implements CommandLineRunner {
 		customerRepository.save(c1);
 		customerRepository.save(c2);
 		customerRepository.save(c3);
-
+		 */
 	}
 
 }

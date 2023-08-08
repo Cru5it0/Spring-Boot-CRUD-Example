@@ -4,11 +4,11 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
-  # Configuración de la aplicación
+  # ConfiguraciÃ³n de la aplicaciÃ³n
   jpa:
     hibernate:
       ddl-auto: update
-  # Configuración de la seguridad
+  # ConfiguraciÃ³n de la seguridad
   mvc:
     path match:
       matching-strategy: ANT_PATH_MATCHER
