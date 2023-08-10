@@ -15,7 +15,7 @@ import java.util.List;
 @Api(tags = "people-controller", description = "CRUD of people in Data Base from application")
 public class PersonController {
 
-    @Autowired
+    @Autowired(required = false)
     PersonServices personServices;
 
     @GetMapping(value = "/person")

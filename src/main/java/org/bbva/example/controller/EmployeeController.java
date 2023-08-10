@@ -11,7 +11,7 @@ import java.util.ArrayList;
 @RestController
 public class EmployeeController {
 
-    @Autowired
+    @Autowired(required = false)
     EmployeeService employeeService;
 
     @GetMapping("/employee")

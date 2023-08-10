@@ -14,16 +14,15 @@ public class SpringBootCrudExampleApplication implements CommandLineRunner {
 		SpringApplication.run(SpringBootCrudExampleApplication.class, args);
 	}
 
-	@Autowired
+	@Autowired(required = false)
 	PersonRepository personRepository;
-	@Autowired
+	@Autowired(required = false)
 	EmployeeRepository employeeRepository;
-	@Autowired
+	@Autowired(required = false)
 	SalesRepository salesRepository;
-	@Autowired
+	@Autowired(required = false)
 	EmailRepository emailRepository;
-
-	@Autowired
+	@Autowired(required = false)
 	CustomerRepository customerRepository;
 
 	@Override

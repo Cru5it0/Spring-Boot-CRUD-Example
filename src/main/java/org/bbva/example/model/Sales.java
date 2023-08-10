@@ -1,11 +1,13 @@
 package org.bbva.example.model;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
 
 @Entity
 @Data
+@Builder
 @Table(name = "sales")
 public class Sales {
 

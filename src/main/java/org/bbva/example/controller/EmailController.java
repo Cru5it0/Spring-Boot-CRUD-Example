@@ -11,7 +11,7 @@ import java.util.ArrayList;
 @RestController
 public class EmailController {
 
-    @Autowired
+    @Autowired(required = false)
     EmailService emailService;
 
     @GetMapping("/email")

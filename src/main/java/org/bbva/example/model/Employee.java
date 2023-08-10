@@ -1,9 +1,12 @@
 package org.bbva.example.model;
 
+import lombok.Builder;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
+@Builder
 @Table(name = "employee")
 public class Employee {
 

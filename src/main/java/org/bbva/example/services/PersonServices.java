@@ -38,7 +38,11 @@ public class PersonServices {
                 });
     }
 
-    public boolean deletePerson(Long id) {
+    public Person updatePerson(Person updatePerson) {
+        return personRepository.save(updatePerson);
+    }
+
+    public boolean deletePerson(long id) {
         try{
             personRepository.deleteById(id);
             return true;

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 @RestController
 public class CustomerController {
 
-    @Autowired
+    @Autowired(required = false)
     CustomerService customerService;
 
     @GetMapping(value = "/customer")
