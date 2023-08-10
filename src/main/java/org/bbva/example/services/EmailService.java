@@ -38,6 +38,10 @@ public class EmailService {
                 });
     }
 
+    public Email updateEmail(Email updateEmail) {
+        return emailRepository.save(updateEmail);
+    }
+
     public boolean delete(Long id) {
         try{
             emailRepository.deleteById(id);

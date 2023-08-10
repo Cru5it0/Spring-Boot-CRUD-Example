@@ -37,6 +37,10 @@ public class SalesService {
                 });
     }
 
+    public Sales updateSales(Sales updateSales) {
+        return salesRepository.save(updateSales);
+    }
+
     public boolean delete(Long id) {
         try {
             salesRepository.deleteById(id);

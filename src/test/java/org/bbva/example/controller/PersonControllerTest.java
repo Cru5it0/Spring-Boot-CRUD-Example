@@ -128,6 +128,7 @@ public class PersonControllerTest {
                 .lastName("Aranda")
                 .age(23)
                 .build();
+
         given(personServices.getIdPerson(personId)).willReturn(person);
 
         ResultActions response = mockMvc.perform(delete("/person/{id}", personId));
