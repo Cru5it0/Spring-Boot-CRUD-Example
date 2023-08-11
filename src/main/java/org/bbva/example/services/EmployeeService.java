@@ -38,6 +38,10 @@ public class EmployeeService {
                 });
     }
 
+    public Employee updateEmployee(Employee updateEmployee) {
+        return employeeRepository.save(updateEmployee);
+    }
+
     public boolean delete1(Long id) {
         try {
             employeeRepository.deleteById(id);

@@ -38,6 +38,10 @@ public class CustomerService {
                 });
     }
 
+    public Customer updateCustomer(Customer updateCustomer) {
+        return customerRepository.save(updateCustomer);
+    }
+
     public boolean delete(Long id) {
         try {
             Customer customer = customerRepository.findById(id).orElseThrow(() -> new ItemNotFoundException(id));
